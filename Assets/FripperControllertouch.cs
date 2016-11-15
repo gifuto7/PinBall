@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FripperControllertuch : MonoBehaviour
+public class FripperControllertouch : MonoBehaviour
 {
 
     private HingeJoint myHingeJoynt;
