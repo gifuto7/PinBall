@@ -3,17 +3,20 @@ using System.Collections;
 
 public class FripperControllertouch : MonoBehaviour
 {
-
+    //HingeJointコンポーネントを入れる
     private HingeJoint myHingeJoynt;
-
+    //初期の傾き
     private float defaultAngle = 20;
+    //弾いた時の傾き
     private float flickAngle = -20;
-    // Use this for initialization
+
+
     void Start()
     {
-
+        //HinjiJointコンポーネント取得
         this.myHingeJoynt = GetComponent<HingeJoint>();
 
+        //フリッパーの傾きを設定
         SetAngle(this.defaultAngle);
 
     }
@@ -21,24 +24,35 @@ public class FripperControllertouch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //スマートフォンのマルチタッチに対応する
         for (int i = 0; i < Input.touchCount; i++)
         {
-            var id = Input.touches[i].fingerId;
+            //タッチした座標を取得
             var pos = Input.touches[i].position;
-
-            if (pos.x > 0 && tag == "LeftFripperTag")
+            Touch t = Input.GetTouch(i);
+            switch (t.phase)
             {
-                SetAngle(this.flickAngle);
-            } else if (pos.x < 0 && tag == "RightFripperTag") {
-                SetAngle(this.flickAngle);
+                case TouchPhase.Began:
 
-            } else if (pos.x > 0 || pos.x < 0)
-            {
-                SetAngle(this.defaultAngle);
+                    if (pos.x < (Screen.width / 2) && tag == "LeftFripperTag")
+                    {
+                        SetAngle(this.flickAngle);
+                    }
+                    else if (pos.x > (Screen.width / 2) && tag == "RightFripperTag")
+                    {
+                        SetAngle(this.flickAngle);
+                    }
+                    
+                    break;
 
-            } else if (pos.x > 0 && pos.x < 0)
-            {
-                SetAngle(this.flickAngle);
+                case TouchPhase.Ended:
+
+                    SetAngle(this.defaultAngle);
+
+                    break;
+
+
+                    
             }
         }            
 

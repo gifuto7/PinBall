@@ -4,10 +4,6 @@ using System.Collections;
 public class pointget : MonoBehaviour
 {
     public int poi = 0;
-    int LageStar;
-    int SmallStar;
-    int LageCloud;
-    int SmallCloud;
 
     void Start()
     {
@@ -24,7 +20,7 @@ public class pointget : MonoBehaviour
         {
             poi += 10;
 
-        }else if(other.gameObject.tag == "LageStarTag")
+        }else if(other.gameObject.tag == "LargeStarTag")
         {
             poi += 20;
 
@@ -32,7 +28,7 @@ public class pointget : MonoBehaviour
         {
             poi += 30;
 
-        }else if(other.gameObject.tag == "LageCloudTag")
+        }else if(other.gameObject.tag == "LargeCloudTag")
         {
             poi += 40;
 

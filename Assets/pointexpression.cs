@@ -26,7 +26,7 @@ public class pointexpression : MonoBehaviour {
 
         
         
-            this.pointtext.GetComponent<Text>().text = mozi + point.ToString();
+            this.pointtext.GetComponent<Text>().text = point.ToString() + mozi;
         
 	}
 }
