@@ -38,7 +38,7 @@ public class FripperControllertouch : MonoBehaviour
                     {
                         SetAngle(this.flickAngle);
                     }
-                    else if (pos.x > (Screen.width / 2) && tag == "RightFripperTag")
+                    else if (pos.x > (0) && tag == "RightFripperTag")
                     {
                         SetAngle(this.flickAngle);
                     }
